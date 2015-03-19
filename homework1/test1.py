@@ -38,7 +38,7 @@ else:
     output_file = open("test1output.txt","w")
     sys.stdout = output_file
 
-print "Code run by **INSERT YOUR NAME HERE**"
+print "Code run by Rex"
 
 UWHPSC = os.environ.get('UWHPSC','** not set **')
 print "Environment variable UWHPSC is %s"  % UWHPSC
