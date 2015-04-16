@@ -5,7 +5,7 @@ program test2
 
     implicit none
     real(kind=8) :: a,b,int_true
-    integer :: nvals(12), i
+    integer :: nvals(34), i
 
     a = 0.d0
     b = 2.d0
@@ -16,7 +16,7 @@ program test2
     print *, " "  ! blank line
 
     ! values of n to test:
-    do i=1,12
+    do i=1,34
         nvals(i) = 5 * 2**(i-1)
         enddo
 

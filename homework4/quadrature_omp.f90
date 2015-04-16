@@ -10,7 +10,7 @@ module quadrature_omp
       real(kind=8) :: fj(n)
       h = (b-a)/(n-1)
       !$ call omp_set_num_threads(4)
-      !$omp parallel do private(x)      
+      !$omp parallel do reduction(+: fsum) private(x)      
       do i =1,n
         x = (i-1)*h+a
         fj(i) = f(x)
