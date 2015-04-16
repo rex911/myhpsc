@@ -1,4 +1,4 @@
-module quadrature
+module quadrature_omp
   contains    
     REAL(kind=8) FUNCTION trapezoid(f, a, b, n)
       IMPLICIT NONE
@@ -9,7 +9,8 @@ module quadrature
       REAL(kind=8) :: h,x,fsum
       real(kind=8) :: fj(n)
       h = (b-a)/(n-1)
-            
+      !$ call omp_set_num_threads(4)
+      !$omp parallel do private(x)      
       do i =1,n
         x = (i-1)*h+a
         fj(i) = f(x)
@@ -42,4 +43,4 @@ module quadrature
         11 format(i8, es22.14, es22.14, es13.3, es13.3,f12.8,f12.8)
       enddo
     end subroutine error_table
-end module quadrature
+end module quadrature_omp
